@@ -7,13 +7,14 @@ import java.util.Set;
 @Table(name = "TMS_City",uniqueConstraints = @UniqueConstraint(columnNames = {"city_id"}))
 public class City {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "city_seq")
     @SequenceGenerator(name = "city_seq",allocationSize = 1,sequenceName = "city_seq")
     private Long city_id;
 
     @Column(name = "city_name")
-    private String cityName;
+    private String name;
 
     @Column(name = "population")
     private int population;
@@ -25,9 +26,9 @@ public class City {
 
     }
 
-    public City(Long city_id, String cityName, int population, double square) {
+    public City(Long city_id, String name, int population, double square) {
         this.city_id = city_id;
-        this.cityName = cityName;
+        this.name = name;
         this.population = population;
         this.square = square;
     }
@@ -40,12 +41,12 @@ public class City {
         this.city_id = city_id;
     }
 
-    public String getCityName() {
-        return cityName;
+    public String getName() {
+        return name;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPopulation() {
